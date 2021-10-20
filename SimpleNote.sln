@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleNote", "SimpleNote\SimpleNote.csproj", "{A94EF2FF-8FC3-4422-9D11-9437FDEEACE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleNote.DbMigrator", "SimpleNote.DbMigrator\SimpleNote.DbMigrator.csproj", "{64827004-7B67-4E05-BDEF-8FB8DCE3F465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleNote.DbMigrator", "SimpleNote.DbMigrator\SimpleNote.DbMigrator.csproj", "{64827004-7B67-4E05-BDEF-8FB8DCE3F465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleNote.Tests", "SimpleNote.Tests\SimpleNote.Tests.csproj", "{3CAF040D-EEF3-43EF-9731-6B20F95F8C9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{64827004-7B67-4E05-BDEF-8FB8DCE3F465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64827004-7B67-4E05-BDEF-8FB8DCE3F465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64827004-7B67-4E05-BDEF-8FB8DCE3F465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAF040D-EEF3-43EF-9731-6B20F95F8C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAF040D-EEF3-43EF-9731-6B20F95F8C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAF040D-EEF3-43EF-9731-6B20F95F8C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAF040D-EEF3-43EF-9731-6B20F95F8C9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

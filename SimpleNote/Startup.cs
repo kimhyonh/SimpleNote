@@ -46,6 +46,7 @@ namespace SimpleNote
             app.UseHttpsRedirection();
 
             app.UseMiddleware<StatusMiddleware>();
+            app.UseMiddleware<RequestLoggingMiddleware>();
 
             app.UseCors(CorsAllowAnyOrigin);
 
