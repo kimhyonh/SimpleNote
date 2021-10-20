@@ -11,6 +11,7 @@ namespace SimpleNote
 {
     public class Startup
     {
+        private const string CorsAllowAnyOrigin = "AllowAnyOrigin";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -22,6 +23,14 @@ namespace SimpleNote
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CorsAllowAnyOrigin, builder => 
+                    builder
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin());
+            });
             services.AddSwaggerGen();
             services.AddScoped<IPersistNote, NoteRepository>();
         }
@@ -37,6 +46,8 @@ namespace SimpleNote
             app.UseHttpsRedirection();
 
             app.UseMiddleware<StatusMiddleware>();
+
+            app.UseCors(CorsAllowAnyOrigin);
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

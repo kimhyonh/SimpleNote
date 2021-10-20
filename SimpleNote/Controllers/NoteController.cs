@@ -15,15 +15,12 @@ namespace SimpleNote.Controllers
     [ApiController]
     public class NoteController : ControllerBase
     {
-        //private readonly ILogger<NoteController> _logger;
         private readonly IPersistNote _noteRepo;
 
         public NoteController(
-            //ILogger<NoteController> logger,
             IPersistNote noteRepo
         )
         {
-            //_logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _noteRepo = noteRepo ?? throw new ArgumentNullException(nameof(noteRepo));
         }
 
