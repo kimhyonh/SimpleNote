@@ -16,6 +16,7 @@ class NoteAction {
       console.error(error);
     }
   }
+  
   public async update(id: number, text: string): Promise<void> {
     try {
       await axios.put(`${this.baseUrl}/Note/${id}`, text, { headers: {'Content-Type': 'application/json'}});

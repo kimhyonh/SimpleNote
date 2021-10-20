@@ -32,18 +32,6 @@ namespace SimpleNote.Controllers
             return Ok(await _noteRepo.Get());
         }
 
-        // GET api/<NoteController>/5
-        [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<string>> GetAsync([Required]int id)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(await _noteRepo.GetById(id));
-        }
-
         // POST api/<NoteController>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -65,6 +53,10 @@ namespace SimpleNote.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            var note = await _noteRepo.GetById(id);
+            if (note is null)
+                return NotFound();
+
             await _noteRepo.Update(new Note
             {
                 Id = id,
@@ -81,6 +73,10 @@ namespace SimpleNote.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            var note = await _noteRepo.GetById(id);
+            if (note is null)
+                return NotFound();
 
             await _noteRepo.DeleteById(id);
             return NoContent();
