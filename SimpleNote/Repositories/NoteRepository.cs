@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using SimpleNote.Entities;
 using SimpleNote.Entities.Persistence;
 using SimpleNote.Infrastructures.SqlContext;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -21,6 +22,7 @@ namespace SimpleNote.Repositories
                     Id,
                     Text
                 From Note
+                ORDER BY CreatedDate
             ");
         }
 
@@ -38,10 +40,10 @@ namespace SimpleNote.Repositories
         public async Task<Note> Insert(string text)
         {
             int id = await Db.ExecuteScalarAsync<int>(@"
-                INSERT Note (Text)
+                INSERT Note (Text, CreatedDate)
                 OUTPUT INSERTED.Id
-                Values (@text)
-            ", new { text });
+                Values (@text, @createdDate)
+            ", new { text, createdDate = DateTime.Now });
 
             return new Note
             {

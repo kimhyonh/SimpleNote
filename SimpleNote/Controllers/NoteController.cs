@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using SimpleNote.Entities;
 using SimpleNote.Entities.Persistence;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SimpleNote.Controllers
@@ -17,9 +15,7 @@ namespace SimpleNote.Controllers
     {
         private readonly IPersistNote _noteRepo;
 
-        public NoteController(
-            IPersistNote noteRepo
-        )
+        public NoteController(IPersistNote noteRepo)
         {
             _noteRepo = noteRepo ?? throw new ArgumentNullException(nameof(noteRepo));
         }
