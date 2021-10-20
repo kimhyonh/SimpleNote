@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import NoteAction from "../actions/NoteAction";
 import Note from "../dto/Note";
 import NoteList from "./NoteList";
@@ -24,11 +25,15 @@ class NoteComponent extends React.Component<{}, NoteComponentState> {
 
   render(): JSX.Element {
     return (
-      <div>
+      <div style={{ padding: "30px 50px" }}>
+        <h3 className="text-center">Simple Note</h3>
+        <hr/>
+
         {this.state.currentViewNote &&
           <NoteView
             text={this.state.currentViewNote.text}
             onSave={value => this.handleOnNoteSave(value)}
+            onCancel={() => this.mutateState(s => s.currentViewNote = null)}
           />
         }
 
@@ -39,7 +44,8 @@ class NoteComponent extends React.Component<{}, NoteComponentState> {
               onClick={note => this.handleOnNoteClick(note)}
               onDelete={note => this.handleOnDelete(note)}
             />
-            <button onClick={e => this.handleOnCreate()}>Create</button>
+            
+            <Button onClick={e => this.handleOnCreate()}>Create</Button>
           </div>
         }
       </div>
